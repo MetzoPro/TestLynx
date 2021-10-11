@@ -14,7 +14,7 @@ class LynxCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'post:list {tag}';
+    protected $signature = 'post:list';
 
     /**
      * The console command description.
@@ -40,7 +40,8 @@ class LynxCommand extends Command
      */
     public function handle()
     {
-        $tag = $this->argument('tag');
+
+        $tag = $this->ask('Entrez le tag svp:');
 
         $idTag = Tag::GetTagId($tag);
 
