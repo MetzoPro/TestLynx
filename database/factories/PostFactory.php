@@ -1,17 +1,21 @@
 <?php
-
 namespace Database\Factories;
-
-
 
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
-/** @var \Illuminate\Database\Eloquent\Factories\Factory $factory */
+class PostFactory extends Factory
+{
+    protected $model = Post::class;
 
-$factory->define(Post::class, function (Faker $faker) {
-    return [
-        'contenu' => $faker->paragraph(),
-    ];
-});
+
+    public function definition()
+    {
+        return [
+            'contenu' => $this->faker->sentence(),
+            'tag_id' => $this->faker->randomNumber(1,25),
+
+        ];
+    }
+}

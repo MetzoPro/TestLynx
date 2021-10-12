@@ -17,7 +17,8 @@ class CreatePostsTable extends Migration
             $table->id();
 
             $table->string('contenu');
-            $table->foreignId('tag_id')->constrained()->onDelete('cascade');
+            $table->integer('tag_id')->unsigned();
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
 
             $table->timestamps();
         });
