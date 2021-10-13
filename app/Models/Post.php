@@ -17,7 +17,9 @@ class Post extends Model
 
     // Cette fonction prend en paramètre l'id du tag fourni à la commande et renvoie les contenus des posts correspondant à ce tag
     public function scopeGetPosts($query, $tagId){
-        return $query->where('tag_id', $tagId)->get()->pluck('contenu');
+        $req = $query->where('tag_id', $tagId)->get()->pluck('contenu');
+
+        return $req;
     }
 
     protected $fillable = [

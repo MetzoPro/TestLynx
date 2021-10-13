@@ -43,12 +43,25 @@ class LynxCommand extends Command
 
         $tag = $this->ask('Entrez le tag svp:');
 
+
+
         $idTag = Tag::GetTagId($tag);
+        if (count($idTag) == 0) {
+            $this->error('Ce tag n\'existe pas');
+            exit();
+        }
+
 
         $posts = Post::GetPosts($idTag);
 
+        if (count($posts) == 0) {
+            $this->info("Pas de posts correspondants à ce tag");
+        }
+
+
+
         foreach ($posts as $post) {
-            $this->info($post);
+            $this->line($post);
         }
 
     }

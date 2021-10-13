@@ -13,7 +13,7 @@ class TagFactory extends Factory
     public function definition()
     {
         return [
-            'tag' => $this->faker->word,
+            'tag' => $this->faker->unique()->word,
         ];
     }
 }

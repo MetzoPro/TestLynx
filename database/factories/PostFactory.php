@@ -3,6 +3,7 @@ namespace Database\Factories;
 
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class PostFactory extends Factory
@@ -14,7 +15,7 @@ class PostFactory extends Factory
     {
         return [
             'contenu' => $this->faker->sentence(),
-            'tag_id' => $this->faker->randomNumber(1,25),
+            'tag_id' => $this->faker->randomNumber(1,Tag::count()),
 
         ];
     }
